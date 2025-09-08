@@ -1,29 +1,17 @@
 {
   "name": "github-favorites-extension",
-  "version": "1.0.0",
-  "description": "Keep track of your favorite GitHub repositories with a single click",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cenron/github-favorites-extension.git"
-  },
-  "keywords": [
-    "GitHub",
-    "favorites",
-    "chrome",
-    "extension"
-  ],
-  "author": "Cenron",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/cenron/github-favorites-extension/issues"
-  },
-  "homepage": "https://github.com/cenron/github-favorites-extension#readme",
   "devDependencies": {
-    "webpack": "^5.101.3",
-    "webpack-cli": "^6.0.1"
+    "@types/chrome": "^0.1.6",
+    "@types/node": "^24.3.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
   }
 }

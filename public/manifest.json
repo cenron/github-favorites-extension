@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Favorites Extension",
+  "description": "A Chrome extension built with React to manage GitHub favorites.",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "vite.svg",
+      "48": "vite.svg",
+      "128": "vite.svg"
+    }
+  },
+  "icons": {
+    "16": "vite.svg",
+    "48": "vite.svg",
+    "128": "vite.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.github.com/*", "http://*.github.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": ["scripting", "storage"],
+  "host_permissions": ["https://*.github.com/*", "http://*.github.com/*"]
+}
