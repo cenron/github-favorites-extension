@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.github.com/*", "http://*.github.com/*"],
-      "js": ["contentScript.js"]
+      "js": ["content/content.js"]
     }
   ],
   "permissions": ["scripting", "storage"],
