@@ -1,31 +1,30 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as SheetPrimitive from "@radix-ui/react-dialog"
-import { XIcon } from "lucide-react"
+import * as React from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
-  return <SheetPrimitive.Root data-slot="sheet" {...props} />
+  return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
 
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
-  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
+  return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
-  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
+  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
+  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
 function SheetOverlay({
@@ -41,7 +40,7 @@ function SheetOverlay({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function SheetContent({
@@ -50,7 +49,7 @@ function SheetContent({
   side = "right",
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left"
+  side?: "top" | "right" | "bottom" | "left";
 }) {
   return (
     <SheetPortal>
@@ -72,13 +71,9 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="tw:ring-offset-background tw:focus:ring-ring tw:data-[state=open]:bg-secondary tw:absolute tw:top-4 tw:right-4 tw:rounded-xs tw:opacity-70 tw:transition-opacity tw:hover:opacity-100 tw:focus:ring-2 tw:focus:ring-offset-2 tw:focus:outline-hidden tw:disabled:pointer-events-none">
-          <XIcon className="tw:size-4" />
-          <span className="tw:sr-only">Close</span>
-        </SheetPrimitive.Close>
       </SheetPrimitive.Content>
     </SheetPortal>
-  )
+  );
 }
 
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
@@ -88,17 +83,20 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
       className={cn("tw:flex tw:flex-col tw:gap-1.5 tw:p-4", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="sheet-footer"
-      className={cn("tw:mt-auto tw:flex tw:flex-col tw:gap-2 tw:p-4", className)}
+      className={cn(
+        "tw:mt-auto tw:flex tw:flex-col tw:gap-2 tw:p-4",
+        className
+      )}
       {...props}
     />
-  )
+  );
 }
 
 function SheetTitle({
@@ -111,7 +109,7 @@ function SheetTitle({
       className={cn("tw:text-foreground tw:font-semibold", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SheetDescription({
@@ -124,7 +122,7 @@ function SheetDescription({
       className={cn("tw:text-muted-foreground tw:text-sm", className)}
       {...props}
     />
-  )
+  );
 }
 
 export {
@@ -136,4 +134,4 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-}
+};

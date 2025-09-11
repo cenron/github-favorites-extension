@@ -5,6 +5,7 @@ import {
   type Favorite,
 } from "../utils/storage-utils";
 import { getRepoInfo } from "../utils/repo-utils";
+import { HeartMinus, HeartPlus } from "lucide-react";
 
 const AddButton = () => {
   const [favorites, setFavorites] = useState<Favorite[]>([]);
@@ -23,6 +24,20 @@ const AddButton = () => {
       setFavorites(favs);
     };
     fetchFavorites();
+
+    const handleStorageChange = (
+      changes: { [key: string]: chrome.storage.StorageChange },
+      areaName: string
+    ) => {
+      if ((areaName === "sync" || areaName === "local") && changes.favorites) {
+        fetchFavorites();
+      }
+    };
+
+    chrome.storage.onChanged.addListener(handleStorageChange);
+    return () => {
+      chrome.storage.onChanged.removeListener(handleStorageChange);
+    };
   }, []);
 
   const handleClick = async () => {
@@ -35,13 +50,19 @@ const AddButton = () => {
   };
 
   return (
-    <button
-      id="favorite-btn"
-      className="Button--primary Button--small Button"
-      onClick={handleClick}
-    >
-      {hasFavorite ? "Remove Favorite" : "Add Favorite"}
-    </button>
+    <div id="favorite-btn">
+      <button
+        className="Button--primary Button--small Button"
+        onClick={handleClick}
+        title={hasFavorite ? "Remove from favorites" : "Add to favorites"}
+      >
+        {hasFavorite ? (
+          <HeartMinus className="tw:size-5" />
+        ) : (
+          <HeartPlus className="tw:size-5" />
+        )}
+      </button>
+    </div>
   );
 };
 

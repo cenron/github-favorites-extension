@@ -1,4 +1,8 @@
-@import "tailwindcss" prefix(tw);
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
+/*@import "tailwindcss/preflight.css" layer(base) prefix(tw);*/
 @import "tw-animate-css";
 
 @custom-variant dark (&:is([data-color-mode="dark"] *));
@@ -79,7 +83,7 @@
 [data-color-mode="dark"] {
   --tw-background: oklch(0.141 0.005 285.823);
   --tw-foreground: oklch(0.985 0 0);
-  --tw-tw-card: oklch(0.21 0.006 285.885);
+  --tw-card: oklch(0.21 0.006 285.885);
   --tw-card-foreground: oklch(0.985 0 0);
   --tw-popover: oklch(0.21 0.006 285.885);
   --tw-popover-foreground: oklch(0.985 0 0);
@@ -92,7 +96,7 @@
   --tw-accent: oklch(0.274 0.006 286.033);
   --tw-accent-foreground: oklch(0.985 0 0);
   --tw-destructive: oklch(0.704 0.191 22.216);
-  --tw-border: oklch(1 0 0 / 10%);
+  --tw-border: oklch(0.3837 0.0179 254.74);
   --tw-input: oklch(1 0 0 / 15%);
   --tw-ring: oklch(0.552 0.016 285.938);
   --tw-chart-1: oklch(0.488 0.243 264.376);

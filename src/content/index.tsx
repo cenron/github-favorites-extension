@@ -26,7 +26,8 @@ document.addEventListener("turbo:load", () => {
 const embedFavoriteButton = () => {
   const topBar = getRepoDetailsContainer();
   if (!topBar) return;
-  if (topBar.querySelector("#favorite-btn")) return;
+  if (topBar.querySelector("#favorite-btn"))
+    topBar.querySelector("#favorite-btn")?.remove();
 
   const li = document.createElement("li");
   topBar.prepend(li);
@@ -38,7 +39,8 @@ const embedFavoriteButton = () => {
 const embedFavoritesMenu = () => {
   const appHeader = getAppHeaderGlobalBarEnd();
   if (!appHeader) return;
-
+  if (appHeader.querySelector("#favorites-menu"))
+    appHeader.querySelector("#favorites-menu")?.remove();
   const container = document.createElement("div");
   appHeader.prepend(container);
 
